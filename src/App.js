@@ -14,7 +14,6 @@ function App() {
         };
         //setTodoList((prev) => prev.push(data));
         setTodoList((prev) => [...prev, data]);
-        console.log(todoList);
     };
     const checkToggle = (todoId) => {
         //const findOne = todoList.filter((todo) => todo._id === todoId);
@@ -24,14 +23,15 @@ function App() {
         //         else todo._id = !todo._id;
         //     })
         // );
-        setTodoList(
-            todoList.map((todo) => {
-                if (todo._id === todoId) {
-                    return { ...todo, done: !todo.done };
-                }
-            })
-        );
 
+        const newArr = [...todoList].map((todo) => {
+            if (todo._id !== todoId) return todo;
+            else {
+                return { ...todo, done: !todo.done };
+            }
+        });
+        console.log('newArr : ', newArr);
+        setTodoList(newArr);
         console.log('todoList : ', todoList);
     };
     return (

@@ -3,6 +3,7 @@ import React from 'react';
 export default function Main({ todoList, checkToggle }) {
     console.log('Main Compo / todoList ::', todoList);
     const handleCheckbox = (id) => {
+        console.log('pass id : ', id);
         checkToggle(id);
     };
     return (

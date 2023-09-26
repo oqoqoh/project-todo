@@ -8,6 +8,7 @@ export default function Footer({ addTodoList }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         addTodoList(todoInput);
+        setTodoInput('');
     };
     return (
         <footer>
