@@ -16,30 +16,25 @@ function App() {
         setTodoList((prev) => [...prev, data]);
     };
     const checkToggle = (todoId) => {
-        //const findOne = todoList.filter((todo) => todo._id === todoId);
-        // setTodoList(
-        //     todoList.map((todo) => {
-        //         if (todo._id !== todoId) return;
-        //         else todo._id = !todo._id;
-        //     })
-        // );
-
         const newArr = [...todoList].map((todo) => {
             if (todo._id !== todoId) return todo;
             else {
                 return { ...todo, done: !todo.done };
             }
         });
-        console.log('newArr : ', newArr);
+
         setTodoList(newArr);
-        console.log('todoList : ', todoList);
+    };
+    const removeTodo = (todoId) => {
+        const filterTodos = [...todoList].filter((todo) => todo._id !== todoId);
+        setTodoList(filterTodos);
     };
     return (
         <div id="App">
             <h1 className="a11y-hidden">Todo List</h1>
             <div className="cnt-todo">
                 <Header />
-                <Main todoList={todoList} checkToggle={checkToggle} />
+                <Main todoList={todoList} checkToggle={checkToggle} removeTodo={removeTodo} />
                 <Footer addTodoList={addTodoList} />
             </div>
         </div>
