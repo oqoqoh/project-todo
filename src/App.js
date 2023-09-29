@@ -5,6 +5,9 @@ import Main from './components/main/Main';
 
 function App() {
     const [todoList, setTodoList] = useState([]);
+    const [activeTodos, setActiveTodos] = useState([]);
+    const [completedTodos, setCompleted] = useState([]);
+    const [showMode, setShowMode] = useState('all');
 
     const addTodoList = (val) => {
         let data = {
@@ -25,15 +28,24 @@ function App() {
 
         setTodoList(newArr);
     };
+    const changeShowMode = (status) => {
+        setShowMode(status);
+    };
     const removeTodo = (todoId) => {
         const filterTodos = [...todoList].filter((todo) => todo._id !== todoId);
         setTodoList(filterTodos);
     };
+
+    const showActiveTodos = (status) => {
+        const filterTodos = [...todoList].filter((todo) => todo.done === true);
+        setTodoList(filterTodos);
+    };
+    const showCompletedTodos = (status) => {};
     return (
         <div id="App">
             <h1 className="a11y-hidden">Todo List</h1>
             <div className="cnt-todo">
-                <Header />
+                <Header changeShowMode={changeShowMode} />
                 <Main todoList={todoList} checkToggle={checkToggle} removeTodo={removeTodo} />
                 <Footer addTodoList={addTodoList} />
             </div>
