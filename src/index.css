@@ -137,7 +137,7 @@ button {
 
 #App {
     height: 100vh;
-    background-color: gold;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,6 +154,6 @@ button {
 }
 
 .cnt-todo {
-    background-color: seagreen;
+    background-color: lightgray;
     width: 400px;
 }

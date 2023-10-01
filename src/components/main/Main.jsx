@@ -18,7 +18,7 @@ export default function Main({ todoList, checkToggle, removeTodo, showMode }) {
         else setShowTodoList([...todoList].filter((todo) => todo.done === true));
     }, [showMode, todoList]);
     return (
-        <main>
+        <main style={{ minHeight: 100 }}>
             <ul>
                 {showTodoList.map((todo) => {
                     return (
