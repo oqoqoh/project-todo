@@ -11,7 +11,7 @@ export default function Footer({ addTodoList }) {
         setTodoInput('');
     };
     return (
-        <footer>
+        <footer style={{ display: 'flex', justifyContent: 'center' }}>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Add Todo" value={todoInput} onChange={handleInput}></input>
                 <button type="subnit">Add</button>
