@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Footer({ addTodoList }) {
+export default function Footer({ addTodoList, darkMode }) {
     const [todoInput, setTodoInput] = useState('');
     const handleInput = (e) => {
         setTodoInput(e.target.value);
@@ -14,7 +14,9 @@ export default function Footer({ addTodoList }) {
         <footer style={{ display: 'flex', justifyContent: 'center' }}>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Add Todo" value={todoInput} onChange={handleInput}></input>
-                <button type="subnit">Add</button>
+                <button type="subnit" style={{ color: darkMode ? 'white' : 'black' }}>
+                    Add
+                </button>
             </form>
         </footer>
     );

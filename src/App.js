@@ -6,6 +6,7 @@ import Main from './components/main/Main';
 function App() {
     const [todoList, setTodoList] = useState([]);
     const [showMode, setShowMode] = useState('all');
+    const [darkMode, setDarkMode] = useState(false);
 
     const addTodoList = (val) => {
         let data = {
@@ -33,14 +34,17 @@ function App() {
         const filterTodos = [...todoList].filter((todo) => todo._id !== todoId);
         setTodoList(filterTodos);
     };
+    const toggleDarkMode = () => {
+        setDarkMode((prev) => !prev);
+    };
 
     return (
-        <div id="App">
+        <div id={darkMode ? 'App-dark' : 'App'}>
             <h1 className="a11y-hidden">Todo List</h1>
-            <div className="cnt-todo">
-                <Header changeShowMode={changeShowMode} />
-                <Main todoList={todoList} checkToggle={checkToggle} removeTodo={removeTodo} showMode={showMode} />
-                <Footer addTodoList={addTodoList} />
+            <div className={darkMode ? 'cnt-todo-dark' : 'cnt-todo'}>
+                <Header changeShowMode={changeShowMode} toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+                <Main todoList={todoList} checkToggle={checkToggle} removeTodo={removeTodo} showMode={showMode} darkMode={darkMode} />
+                <Footer addTodoList={addTodoList} darkMode={darkMode} />
             </div>
         </div>
     );

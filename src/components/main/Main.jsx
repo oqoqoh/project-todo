@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function Main({ todoList, checkToggle, removeTodo, showMode }) {
-    const [activeTodos, setActiveTodos] = useState([]);
-    const [completedTodos, setCompletedTodos] = useState([]);
+export default function Main({ todoList, checkToggle, removeTodo, showMode, darkMode }) {
     const [showTodoList, setShowTodoList] = useState([]);
 
     const handleCheckbox = (id) => {
@@ -26,7 +24,7 @@ export default function Main({ todoList, checkToggle, removeTodo, showMode }) {
                             <input type="checkbox" onChange={() => handleCheckbox(todo._id)} checked={todo.done ? true : false} />
                             <p>{todo.title}</p>
 
-                            <button style={{ marginLeft: 'auto' }} onClick={() => handleButton(todo._id)}>
+                            <button style={{ marginLeft: 'auto', color: darkMode ? 'white' : 'black' }} onClick={() => handleButton(todo._id)}>
                                 delete
                             </button>
                         </li>
