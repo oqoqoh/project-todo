@@ -10,7 +10,7 @@ export default function TodoList() {
     const handleAdd = (todo) => {
         setTodos([...todos, todo]);
     };
-    const handleUpdate = () => {};
+    const handleUpdate = (updated) => setTodos(todos.map((t) => (t.id === updated.id ? updated : t)));
     const handleDelete = () => {};
     return (
         <section>
