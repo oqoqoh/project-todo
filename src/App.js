@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
+import TodoList from './components/TodoList/TodoList';
 
 function App() {
     const [todoList, setTodoList] = useState([]);
@@ -39,14 +40,17 @@ function App() {
     };
 
     return (
-        <div id={darkMode ? 'App-dark' : 'App'}>
-            <h1 className="a11y-hidden">Todo List</h1>
-            <div className={darkMode ? 'cnt-todo-dark' : 'cnt-todo'}>
-                <Header changeShowMode={changeShowMode} toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-                <Main todoList={todoList} checkToggle={checkToggle} removeTodo={removeTodo} showMode={showMode} darkMode={darkMode} />
-                <Footer addTodoList={addTodoList} darkMode={darkMode} />
+        <>
+            <TodoList />
+            <div id={darkMode ? 'App-dark' : 'App'}>
+                <h1 className="a11y-hidden">Todo List</h1>
+                <div className={darkMode ? 'cnt-todo-dark' : 'cnt-todo'}>
+                    <Header changeShowMode={changeShowMode} toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+                    <Main todoList={todoList} checkToggle={checkToggle} removeTodo={removeTodo} showMode={showMode} darkMode={darkMode} />
+                    <Footer addTodoList={addTodoList} darkMode={darkMode} />
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 export default App;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsTrash3 } from 'react-icons';
+import { BsTrash3 } from 'react-icons/bs';
 
 export default function Todo({ todo, onUpdate, onDelete }) {
     return (
