@@ -3,6 +3,7 @@ import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 import TodoList from './components/TodoList/TodoList';
+import Header2 from './components/header/Header2';
 
 function App() {
     const [todoList, setTodoList] = useState([]);
@@ -39,9 +40,13 @@ function App() {
         setDarkMode((prev) => !prev);
     };
 
+    //리펙토리 코드
+    const [filter, setFilter] = useState(filter[0]);
+
     return (
         <>
-            <TodoList />
+            <Header2 filters={filters} filter={filter} onFilterChange={(filter) => setFilter(filter)} />
+            <TodoList filter={filter} />
             <div id={darkMode ? 'App-dark' : 'App'}>
                 <h1 className="a11y-hidden">Todo List</h1>
                 <div className={darkMode ? 'cnt-todo-dark' : 'cnt-todo'}>
