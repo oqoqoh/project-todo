@@ -5,6 +5,8 @@ import Main from './components/main/Main';
 import TodoList from './components/TodoList/TodoList';
 import Header2 from './components/header/Header2';
 
+const filters = ['all', 'active', 'completed'];
+
 function App() {
     const [todoList, setTodoList] = useState([]);
     const [showMode, setShowMode] = useState('all');
