@@ -43,7 +43,7 @@ function App() {
     };
 
     //리펙토리 코드
-    const [filter, setFilter] = useState(filter[0]);
+    const [filter, setFilter] = useState(filters[0]);
 
     return (
         <>
